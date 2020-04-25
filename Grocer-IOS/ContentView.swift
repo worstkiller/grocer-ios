@@ -7,9 +7,17 @@
 
 import SwiftUI
 
+/**
+ Home Screen View
+ */
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack() {
+            ToolbarView()
+            SearchView().padding(.top)
+            TabLayoutView()
+             Spacer()
+        }
     }
 }
 
