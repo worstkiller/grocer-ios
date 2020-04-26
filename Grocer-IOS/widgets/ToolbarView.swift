@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ToolbarView: View {
-    let iconSizeSearch : CGFloat = 30
+    let iconSizeSearch : CGFloat = 24
     var body: some View {
         HStack {
             Image("filter")
                 .resizable()
-                .frame(width: 30, height: 23, alignment:.leading)
+                .frame(width: 24, height: 17, alignment:.leading)
                 .scaledToFit()
             Spacer()
             Image("cart")

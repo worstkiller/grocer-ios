@@ -11,8 +11,8 @@ import SwiftUI
  Single item view to show the grocery product with details like title, price and subtitle etc
  */
 struct GroceryItemsRow: View {
-    let cellWidth = UIScreen.main.bounds.width/2 - 32
-    let cellHeight : CGFloat = 260
+    var cellWidth = UIScreen.main.bounds.width/2 - 20
+    let cellHeight : CGFloat =  (UIScreen.main.bounds.width/2 - 32) * 1.75
     var isPromotional = false
     let rupee = "\u{20B9}"+"\(90)"
     
@@ -41,27 +41,28 @@ struct GroceryItemsRow: View {
                         }
                         
                         Text("Gurugram Mandi Haryana")
-                            .font(.subheadline)
+                            .font(.system(size: 12))
                             .fontWeight(.medium)
                             .lineLimit(2)
                             .foregroundColor(Color.gray)
                             .multilineTextAlignment(.leading)
-                            .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 10))
+                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 50))
                         
                         HStack {
                             
                             VStack {
                                 Text(rupee).font(.headline)
-                                Text("Per Kg").font(.caption) .foregroundColor(Color.gray)
+                                Text("Per Kg")
+                                    .font(.system(size: 10)).foregroundColor(Color.gray)
                                 
                             }.padding(.leading)
                             
                             Spacer()
                             
                             Text("View Prices")
-                                .font(.caption)
+                                .font(.system(size: 10))
                                 .multilineTextAlignment(.trailing).lineLimit(1)
-                                .foregroundColor(Color.gray).frame(width: 85, height: 15, alignment: .center)
+                                .foregroundColor(Color.gray).padding(.trailing)
                             
                         }.padding(.top)
                         
@@ -69,6 +70,11 @@ struct GroceryItemsRow: View {
                         
                         
                     }.frame(width: cellWidth, height: cellHeight, alignment: .center)
+                
+                    Image("plus")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20, alignment: .center)
                     
                 }
                 

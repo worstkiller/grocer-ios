@@ -20,7 +20,7 @@ struct TabLayoutRow: View {
             Text(categoryTitle)
                 .font(.headline)
                 .multilineTextAlignment(.center).foregroundColor(isSelected ? Color.black : Color.gray)
-            RoundedRectangle(cornerRadius: 10).frame(width: 100, height: 4, alignment: .center).foregroundColor(Color.green).padding(.top,12).opacity(isSelected ? 1.0 : 0)
+            RoundedRectangle(cornerRadius: 10).frame(width: 100, height: 4, alignment: .center).foregroundColor(Color.green).opacity(isSelected ? 1.0 : 0)
         }
         
     }

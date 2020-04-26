@@ -19,13 +19,13 @@ struct SearchView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 25)
                 .stroke(Color.gray, lineWidth: 1)
-                .frame(width: width, height: 54, alignment: .center)
+                .frame(width: width, height: 48, alignment: .center)
             
             HStack {
                 TextField("Search here", text: $searchText).padding()
                 Image("search")
                     .resizable()
-                    .frame(width:20, height:20)
+                    .frame(width:18, height:18)
                     .scaledToFit()
                 Spacer()
                 Spacer()

@@ -14,8 +14,9 @@ struct ContentView: View {
     var body: some View {
         VStack() {
             ToolbarView()
-            SearchView().padding(.top)
-            TabLayoutView()
+            SearchView()
+            TabLayoutView().padding(.top)
+            GroceryItemsView()
              Spacer()
         }
     }

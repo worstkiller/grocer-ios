@@ -21,7 +21,7 @@ struct TabLayoutView: View {
                 TabLayoutRow(categoryTitle: "Nuts & Seeds", isSelected: false)
                 TabLayoutRow(categoryTitle: "Dairy", isSelected: false)
              }
-        }.frame(height: 100)
+        }
 
     }
 }

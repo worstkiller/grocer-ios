@@ -11,10 +11,11 @@ import SwiftUI
  Grocery item view
  */
 struct GroceryItemsView: View {
+    let screenWidth = UIScreen.main.bounds.width/2 - 32
     var body: some View {
-        GridStack(rows: 30, columns: 2) { row, col in
-            Text("Hola")
-        }.edgesIgnoringSafeArea(.top)
+        GridStack(minCellWidth: screenWidth, spacing: 10, numItems: 4, alignment: .center) { index, cellWidth in
+            GroceryItemsRow()
+        }.background(Rectangle().foregroundColor(Utils.getColor("#fafafa")))
     }
 }
 
