@@ -17,7 +17,7 @@ struct ContentView: View {
             SearchView()
             TabLayoutView().padding(.top)
             GroceryItemsView()
-             Spacer()
+            Spacer()
         }
     }
 }

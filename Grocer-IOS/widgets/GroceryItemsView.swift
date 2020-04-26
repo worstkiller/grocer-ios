@@ -14,7 +14,7 @@ struct GroceryItemsView: View {
     let screenWidth = UIScreen.main.bounds.width/2 - 32
     var body: some View {
         GridStack(minCellWidth: screenWidth, spacing: 10, numItems: 4, alignment: .center) { index, cellWidth in
-            GroceryItemsRow()
+            GroceryItemsRow(isPromotional: index == 1 ? true : false)
         }.background(Rectangle().foregroundColor(Utils.getColor("#fafafa")))
     }
 }
