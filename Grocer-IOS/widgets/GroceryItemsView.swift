@@ -11,16 +11,24 @@ import SwiftUI
  Grocery item view
  */
 struct GroceryItemsView: View {
+    
+    @State var groceryItemModels: [GroceryItemModel]
+    
     let screenWidth = UIScreen.main.bounds.width/2 - 32
     var body: some View {
-        GridStack(minCellWidth: screenWidth, spacing: 10, numItems: 4, alignment: .center) { index, cellWidth in
-            GroceryItemsRow(isPromotional: index == 1 ? true : false)
-        }.background(Rectangle().foregroundColor(Utils.getColor("#fafafa")))
+        
+        GridStack(minCellWidth: screenWidth, spacing: 10, numItems: groceryItemModels.count, alignment: .center) { index, cellWidth in
+        
+            GroceryItemsRow(groceryItemModel: self.groceryItemModels[index])
+        
+        }
+        .background(Rectangle().foregroundColor(Utils.getColor("#fafafa")))
     }
+    
 }
 
 struct GroceryItemsView_Previews: PreviewProvider {
     static var previews: some View {
-        GroceryItemsView()
+        GroceryItemsView(groceryItemModels: LocalDataHandler.productsData)
     }
 }

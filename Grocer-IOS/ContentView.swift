@@ -15,8 +15,8 @@ struct ContentView: View {
         VStack() {
             ToolbarView()
             SearchView()
-            TabLayoutView().padding(.top)
-            GroceryItemsView()
+            TabLayoutView(categoryItemModel: LocalDataHandler.categoriesData)
+            GroceryItemsView(groceryItemModels: LocalDataHandler.productsData)
             Spacer()
         }
     }

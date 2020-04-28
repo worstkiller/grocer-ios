@@ -11,23 +11,25 @@ import SwiftUI
  View to act as tab view and help in selecting the various categories
  */
 struct TabLayoutView: View {
+    
+    @State var categoryItemModel  : [CategoryItemModel]
+    
     var body: some View {
         
         ScrollView (.horizontal, showsIndicators: false) {
-             HStack {
-                 //contents
-                TabLayoutRow(categoryTitle: "Fruits", isSelected: true)
-                TabLayoutRow(categoryTitle: "Vegetables", isSelected: false)
-                TabLayoutRow(categoryTitle: "Nuts & Seeds", isSelected: false)
-                TabLayoutRow(categoryTitle: "Dairy", isSelected: false)
-             }
-        }
-
+            HStack {
+                //contents
+                ForEach(categoryItemModel) { result in
+                    TabLayoutRow(categoryTitle: result.title,
+                                 isSelected: result.isDefault)
+                }
+            }
+        }.padding(.top)
     }
 }
 
 struct TabLayoutView_Previews: PreviewProvider {
     static var previews: some View {
-        TabLayoutView()
+        TabLayoutView(categoryItemModel: LocalDataHandler.categoriesData)
     }
 }
