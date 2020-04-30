@@ -13,6 +13,8 @@ import Foundation
 struct Constants {
     
     static let COLOR_GREY_SEARCH = "#E0E0E0"
+    static let COLOR_GREY_600 = "#757575"
     static let COLOR_BLACK = "#212121"
+    static let COLOR_ACCENT_GREEN = "#01ac51"
     
 }

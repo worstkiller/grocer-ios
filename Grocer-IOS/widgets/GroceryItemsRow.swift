@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 /**
  Single item view to show the grocery product with details like title, price and subtitle etc
@@ -54,10 +55,19 @@ struct GroceryItemsRow: View {
             
             VStack {
                 
-                Image("kiwi")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: cellWidth, height: 130, alignment: .center)
+                URLImage(URL(string: groceryItemModel.image)!,
+                         placeholder: { _ in
+                            Image("kiwi")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: self.cellWidth, height: 130, alignment: .center)
+                }){ proxy in
+                    proxy
+                        .image
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.top)
+                }.frame(width: self.cellWidth, height: 130, alignment: .center)
                     .padding(.top)
                 
                 HStack {
@@ -65,6 +75,7 @@ struct GroceryItemsRow: View {
                         .font(.headline)
                         .multilineTextAlignment(.leading)
                         .padding(.leading)
+                        .foregroundColor(Color.fromHex(Constants.COLOR_BLACK))
                     
                     Spacer()
                 }
@@ -73,16 +84,17 @@ struct GroceryItemsRow: View {
                     .font(.system(size: 12))
                     .fontWeight(.medium)
                     .lineLimit(2)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.fromHex(Constants.COLOR_GREY_600))
                     .multilineTextAlignment(.leading)
-                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 50))
+                    .padding(.leading)
+                    .frame(width: cellWidth, height: 30, alignment: .leading)
                 
                 HStack {
                     VStack {
                         Text(getFormattedPrice(price: groceryItemModel.price)).font(.headline)
                         Text(groceryItemModel.quantityLabel ?? "")
                             .font(.system(size: 10))
-                            .foregroundColor(Color.gray)
+                            .foregroundColor(Color.fromHex(Constants.COLOR_GREY_600))
                         
                     }.padding(.leading)
                     
@@ -92,7 +104,7 @@ struct GroceryItemsRow: View {
                         .font(.system(size: 10))
                         .multilineTextAlignment(.trailing)
                         .lineLimit(1)
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color.fromHex(Constants.COLOR_GREY_600))
                         .padding(.trailing)
                     
                 }.padding(.top)
@@ -110,12 +122,18 @@ struct GroceryItemsRow: View {
         return  ZStack {
             RoundedRectangle(cornerRadius: 30)
                 .frame(width: cellWidth, height: cellHeight, alignment: .center)
-                .foregroundColor(Utils.getColor(groceryItemModel.accentColor))
+                .foregroundColor(Color.fromHex(groceryItemModel.accentColor))
             
-            Image("fruit")
-                .resizable()
-                .scaledToFill()
-                .frame(width: cellWidth, height: cellHeight, alignment: .center)
+            URLImage(URL(string: groceryItemModel.image)!, placeholder: { _ in
+                Image("fruit")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: self.cellWidth, height: self.cellHeight, alignment: .center)
+            }){ proxy in
+                proxy.image
+                    .resizable()
+                    .scaledToFill()
+            } .frame(width: cellWidth, height: cellHeight, alignment: .center)
                 .clipShape(RoundedRectangle(cornerRadius: 30))
             
             VStack(spacing: 16){
@@ -126,12 +144,13 @@ struct GroceryItemsRow: View {
                     .font(.system(size: 24))
                     .fontWeight(.bold)
                     .padding()
+                    .foregroundColor(Color.fromHex(Constants.COLOR_BLACK))
                 
                 Text(groceryItemModel.miscInfo)
                     .font(.caption)
                     .fontWeight(.bold)
                     .backgroundCoupon(cellWidth: cellWidth, cellHeight: cellHeight)
-                    .foregroundColor(Color.green)
+                    .foregroundColor(Color.fromHex(Constants.COLOR_ACCENT_GREEN))
                 
                 
                 Text(groceryItemModel.subtitle)
@@ -139,7 +158,7 @@ struct GroceryItemsRow: View {
                     .font(.system(size: 10))
                     .padding()
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.fromHex(Constants.COLOR_GREY_600))
                 
                 Spacer()
             }
@@ -161,7 +180,7 @@ extension View {
             .foregroundColor(Color.white).opacity(0.8)
             .frame(width: cellWidth - 42, height: 30, alignment: .center))
             .overlay(RoundedRectangle(cornerRadius: 5)
-                .stroke(Color.green, lineWidth: 2)
+                .stroke(Color.fromHex(Constants.COLOR_ACCENT_GREEN), lineWidth: 2)
                 .frame(width: cellWidth - 42, height: 30, alignment: .center))
     }
     
