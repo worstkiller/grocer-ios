@@ -91,7 +91,7 @@ struct GroceryItemsRow: View {
                 
                 HStack {
                     VStack {
-                        Text(getFormattedPrice(price: groceryItemModel.price)).font(.headline)
+                        Text(Utils.getFormattedPrice(price: groceryItemModel.price)).font(.headline)
                         Text(groceryItemModel.quantityLabel ?? "")
                             .font(.system(size: 10))
                             .foregroundColor(Color.fromHex(Constants.COLOR_GREY_600))
@@ -163,11 +163,6 @@ struct GroceryItemsRow: View {
                 Spacer()
             }
         }
-    }
-    
-    //get ruppe enabled price symbol
-    func getFormattedPrice(price: Int?)-> String{
-        return "\u{20B9}"+"\(price ?? 0)"
     }
 }
 

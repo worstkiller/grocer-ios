@@ -19,8 +19,12 @@ struct TabLayoutRow: View {
         VStack {
             Text(categoryTitle)
                 .font(.headline)
-                .multilineTextAlignment(.center).foregroundColor(isSelected ? Color.black : Color.gray)
-            RoundedRectangle(cornerRadius: 10).frame(width: 100, height: 4, alignment: .center).foregroundColor(Color.green).opacity(isSelected ? 1.0 : 0)
+                .multilineTextAlignment(.center).foregroundColor(isSelected ? Color.fromHex(Constants.COLOR_BLACK) : Color.fromHex(Constants.COLOR_GREY_400))
+            
+            RoundedRectangle(cornerRadius: 10)
+                .frame(width: 100, height: 4, alignment: .center)
+                .foregroundColor(Color.fromHex(Constants.COLOR_ACCENT_GREEN))
+                .opacity(isSelected ? 1.0 : 0)
         }
         
     }

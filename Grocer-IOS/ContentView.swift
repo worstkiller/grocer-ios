@@ -13,7 +13,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack() {
-            ToolbarView()
+            ToolbarView(hasNavigation: false)
             SearchView()
             TabLayoutView(categoryItemModel: LocalDataHandler.categoriesData)
             GroceryItemsView(groceryItemModels: LocalDataHandler.productsData)
