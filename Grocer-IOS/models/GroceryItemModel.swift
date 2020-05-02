@@ -19,6 +19,10 @@ struct GroceryItemModel: Hashable, Codable, Identifiable {
     var accentColor: String
     var parentUid: String
     var type: Category
+    var description: String?
+    var quantityDesc: String?
+    var delivery: String?
+    var discount: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "uid"
@@ -31,6 +35,10 @@ struct GroceryItemModel: Hashable, Codable, Identifiable {
         case accentColor = "accent_color"
         case parentUid = "parent_uid"
         case type
+        case description
+        case quantityDesc = "quantity_desc"
+        case delivery
+        case discount
     }
     
     enum Category: String, CaseIterable, Codable, Hashable {

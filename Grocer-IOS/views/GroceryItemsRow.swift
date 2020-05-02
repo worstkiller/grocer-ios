@@ -22,7 +22,13 @@ struct GroceryItemsRow: View {
             if groceryItemModel.type == GroceryItemModel.Category.promotion {
                 getPromotionalView()
             }else {
-                getProductItemView()
+                NavigationLink(
+                    destination: GrocerDetailsView(grocerItemModel: groceryItemModel)
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true)
+                ){
+                    getProductItemView()
+                }
             }
         }
     }
@@ -39,6 +45,7 @@ struct GroceryItemsRow: View {
                     Spacer()
                     Image("plus")
                         .resizable()
+                        .renderingMode(.original)
                         .frame(width: 10, height: 10, alignment: .center)
                         .padding(.all, 10)
                         .background(Rectangle()
@@ -59,14 +66,17 @@ struct GroceryItemsRow: View {
                          placeholder: { _ in
                             Image("kiwi")
                                 .resizable()
+                                .renderingMode(.original)
                                 .scaledToFit()
                                 .frame(width: self.cellWidth, height: 130, alignment: .center)
                 }){ proxy in
                     proxy
                         .image
+                        .renderingMode(.original)
                         .resizable()
                         .scaledToFit()
                         .padding(.top)
+                    
                 }.frame(width: self.cellWidth, height: 130, alignment: .center)
                     .padding(.top)
                 
@@ -91,7 +101,10 @@ struct GroceryItemsRow: View {
                 
                 HStack {
                     VStack {
-                        Text(Utils.getFormattedPrice(price: groceryItemModel.price)).font(.headline)
+                        
+                        Text(Utils.getFormattedPrice(price: groceryItemModel.price))
+                            .font(.headline).foregroundColor(Color.fromHex(Constants.COLOR_BLACK))
+                        
                         Text(groceryItemModel.quantityLabel ?? "")
                             .font(.system(size: 10))
                             .foregroundColor(Color.fromHex(Constants.COLOR_GREY_600))
@@ -127,11 +140,13 @@ struct GroceryItemsRow: View {
             URLImage(URL(string: groceryItemModel.image)!, placeholder: { _ in
                 Image("fruit")
                     .resizable()
+                    .renderingMode(.original)
                     .scaledToFill()
                     .frame(width: self.cellWidth, height: self.cellHeight, alignment: .center)
             }){ proxy in
                 proxy.image
                     .resizable()
+                    .renderingMode(.original)
                     .scaledToFill()
             } .frame(width: cellWidth, height: cellHeight, alignment: .center)
                 .clipShape(RoundedRectangle(cornerRadius: 30))

@@ -15,6 +15,7 @@ struct GroceryItemsView: View {
     @State var groceryItemModels: [GroceryItemModel]
     
     let screenWidth = UIScreen.main.bounds.width/2 - 32
+   
     var body: some View {
         
         GridStack(minCellWidth: screenWidth, spacing: 10, numItems: groceryItemModels.count, alignment: .center) { index, cellWidth in

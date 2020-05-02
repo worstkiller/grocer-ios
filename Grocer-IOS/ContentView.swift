@@ -11,13 +11,20 @@ import SwiftUI
  Home Screen View
  */
 struct ContentView: View {
+    
+    @State var categoriesData : [CategoryItemModel] = LocalDataHandler.categoriesData
+    @State var productsData : [GroceryItemModel] = LocalDataHandler.productsData
+    
     var body: some View {
-        VStack() {
-            ToolbarView(hasNavigation: false)
-            SearchView()
-            TabLayoutView(categoryItemModel: LocalDataHandler.categoriesData)
-            GroceryItemsView(groceryItemModels: LocalDataHandler.productsData)
-            Spacer()
+        NavigationView {
+            VStack() {
+                ToolbarView(hasNavigation: false)
+                SearchView()
+                TabLayoutView(categoryItemModel: categoriesData, isSelected: false)
+                GroceryItemsView(groceryItemModels: productsData)
+                Spacer()
+            }.navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
 }

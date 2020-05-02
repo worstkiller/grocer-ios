@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import MaterialComponents
 
 /**
  utils for basic functionality related to UI and other short computations which can be reused again and again
@@ -40,6 +41,13 @@ struct Utils {
     //get ruppe enabled price symbol
     static func getFormattedPrice(price: Int?)-> String{
         return "\u{20B9}"+"\(price ?? 0)"
+    }
+    
+    //show a bottom snackbar message
+     static func showToast(msg: String) {
+        let message = MDCSnackbarMessage()
+        message.text =  msg
+        MDCSnackbarManager.show(message)
     }
     
 }
