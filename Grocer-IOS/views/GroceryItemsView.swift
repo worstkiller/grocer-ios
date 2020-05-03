@@ -12,7 +12,7 @@ import SwiftUI
  */
 struct GroceryItemsView: View {
     
-    @State var groceryItemModels: [GroceryItemModel]
+    var groceryItemModels: [GroceryItemModel]
     
     let screenWidth = UIScreen.main.bounds.width/2 - 32
    

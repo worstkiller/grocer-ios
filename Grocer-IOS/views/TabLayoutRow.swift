@@ -12,42 +12,46 @@ import SwiftUI
  */
 struct TabLayoutRow: View {
     
-    @State var categoriesItemModel: CategoryItemModel
-    @State var isSelected: Bool
+    var categoriesItemModel: CategoryItemModel
+    var selectedId: String?
     
     var onTabChangeDelegate : TabChangeDelegate?
     
     var body: some View {
         
         Button(action: {
-            self.isSelected.toggle()
             self.onTabChangeDelegate?.onTabChange(id: self.categoriesItemModel.id)
         }) {
             VStack {
                 Text(categoriesItemModel.title)
                     .font(.headline)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(self.isSelected ? Color.fromHex(Constants.COLOR_BLACK) : Color.fromHex(Constants.COLOR_GREY_400))
+                    .foregroundColor(self.isSelectedTab() ? Color.fromHex(Constants.COLOR_BLACK) : Color.fromHex(Constants.COLOR_GREY_400))
                 
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 100, height: 4, alignment: .center)
                     .foregroundColor(Color.fromHex(Constants.COLOR_ACCENT_GREEN))
-                    .opacity(self.isSelected  ? 1.0 : 0)
+                    .opacity(self.isSelectedTab()  ? 1.0 : 0)
             }
         }
     }
     
-    //returns if the selected and current id is match
-    func isTabSelected()-> Bool {
-        return categoriesItemModel.isDefault
+    func isSelectedTab() -> Bool{
+        //for first time when user did not selected the tab
+        guard  let notEmptyId = selectedId else {
+            return categoriesItemModel.isDefault
+        }
+        
+        //if not empty then check for the selected id
+        return notEmptyId == categoriesItemModel.id
     }
 }
 
 struct TabLayoutRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TabLayoutRow(categoriesItemModel: LocalDataHandler.categoriesData[0], isSelected: true)
-            TabLayoutRow(categoriesItemModel: LocalDataHandler.categoriesData[1], isSelected: false)
+            TabLayoutRow(categoriesItemModel: LocalDataHandler.categoriesData[0])
+            TabLayoutRow(categoriesItemModel: LocalDataHandler.categoriesData[1])
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

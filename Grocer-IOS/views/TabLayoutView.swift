@@ -13,50 +13,26 @@ import SwiftUI
 struct TabLayoutView: View {
     
     @State var categoryItemModel  : [CategoryItemModel]
-    @State var isSelected: Bool
+    @ObservedObject var categoryObservable : CategoryObservable
+    var onTabChangeListener: TabChangeDelegate?
     
     var body: some View {
-        ScrollView (.horizontal, showsIndicators: isSelected) {
+        ScrollView (.horizontal, showsIndicators: false) {
             HStack {
                 //contents
                 ForEach(categoryItemModel) { result in
                     TabLayoutRow(categoriesItemModel: result,
-                                 isSelected: result.isDefault,
-                                 onTabChangeDelegate: self)
+                                 selectedId: self.categoryObservable.selectedId,
+                                 onTabChangeDelegate: self.onTabChangeListener)
                 }
-            }
-            .padding(.top)
-        }
-    }
-    
-    //resets the default flag to false
-    func resetTabs() {
-        for var item in categoryItemModel {
-            item.isDefault = false
-        }
-    }
-    
-    //returns the isDefault category id
-    func getDefaultTabId(id: String){
-        for var result in categoryItemModel {
-            if result.id == id {
-                result.isDefault = true
-            }
+            }.padding(.top)
         }
     }
 }
 
 struct TabLayoutView_Previews: PreviewProvider {
     static var previews: some View {
-        TabLayoutView(categoryItemModel: LocalDataHandler.categoriesData, isSelected: false)
-    }
-}
-
-extension TabLayoutView : TabChangeDelegate {
-    func onTabChange(id: String) {
-        resetTabs()
-        getDefaultTabId(id: id)
-        self.isSelected.toggle()
-        print("on tab change layout called")
+        TabLayoutView(categoryItemModel: LocalDataHandler.categoriesData,
+                      categoryObservable: CategoryObservable())
     }
 }

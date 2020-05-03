@@ -20,3 +20,7 @@ struct CategoryItemModel: Hashable, Codable, Identifiable {
     }
 }
  
+//specific class for observing the tab selection
+class CategoryObservable: ObservableObject {
+    @Published var selectedId: String?
+}
