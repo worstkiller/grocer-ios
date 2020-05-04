@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var categoriesData : [CategoryItemModel] = LocalDataHandler.categoriesData
     @State var productsData : [GroceryItemModel] = LocalDataHandler.productsData
     @ObservedObject var categoryObservable = CategoryObservable()
+    @ObservedObject var productsObservable = ProductObservable(LocalDataHandler.productsData)
 
     var body: some View {
         
@@ -30,7 +31,7 @@ struct ContentView: View {
                               categoryObservable: categoryObservable,
                               onTabChangeListener: self)
                 
-                GroceryItemsView(groceryItemModels: productsData)
+                GroceryItemsView(groceryItemModels: productsObservable.productsList ?? [])
                 
                 Spacer()
             
@@ -51,7 +52,7 @@ struct ContentView_Previews: PreviewProvider {
 extension ContentView : TabChangeDelegate {
     func onTabChange(id: String) {
         self.categoryObservable.selectedId = id
-        productsData = LocalDataHandler.getProductsData(category: id)
+        productsObservable.productsList = LocalDataHandler.getProductsData(category: id)
         print("on tab change listener called, data size = \(productsData.count)")
     }
 }

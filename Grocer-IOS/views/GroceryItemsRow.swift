@@ -15,7 +15,8 @@ struct GroceryItemsRow: View {
     let cellWidth = UIScreen.main.bounds.width/2 - 20
     let cellHeight : CGFloat =  (UIScreen.main.bounds.width/2 - 32) * 1.75
     
-    @State var groceryItemModel : GroceryItemModel
+    var groceryItemModel : GroceryItemModel
+    var debugView: Bool = false
     
     var body: some View {
         VStack {
@@ -64,7 +65,7 @@ struct GroceryItemsRow: View {
                 
                 URLImage(URL(string: groceryItemModel.image)!,
                          placeholder: { _ in
-                            Image("kiwi")
+                            Image(self.debugView ? "kiwi" : "")
                                 .resizable()
                                 .renderingMode(.original)
                                 .scaledToFit()
@@ -76,6 +77,8 @@ struct GroceryItemsRow: View {
                         .resizable()
                         .scaledToFit()
                         .padding(.top)
+                        .transition(AnyTransition.opacity)
+                        .animation(.default)
                     
                 }.frame(width: self.cellWidth, height: 130, alignment: .center)
                     .padding(.top)
@@ -138,16 +141,18 @@ struct GroceryItemsRow: View {
                 .foregroundColor(Color.fromHex(groceryItemModel.accentColor))
             
             URLImage(URL(string: groceryItemModel.image)!, placeholder: { _ in
-                Image("fruit")
+                Image(self.debugView ? "fruit" : "")
                     .resizable()
                     .renderingMode(.original)
                     .scaledToFill()
                     .frame(width: self.cellWidth, height: self.cellHeight, alignment: .center)
+              
             }){ proxy in
                 proxy.image
                     .resizable()
                     .renderingMode(.original)
                     .scaledToFill()
+                
             } .frame(width: cellWidth, height: cellHeight, alignment: .center)
                 .clipShape(RoundedRectangle(cornerRadius: 30))
             
@@ -199,8 +204,8 @@ extension View {
 struct GroceryItemsRow_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            GroceryItemsRow(groceryItemModel: LocalDataHandler.productsData[0])
-            GroceryItemsRow(groceryItemModel: LocalDataHandler.productsData[1])
+            GroceryItemsRow(groceryItemModel: LocalDataHandler.productsData[0], debugView: true)
+            GroceryItemsRow(groceryItemModel: LocalDataHandler.productsData[1], debugView: true)
         }.previewLayout(.fixed(width: 300, height: 270))
     }
 }

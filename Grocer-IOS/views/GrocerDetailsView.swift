@@ -49,6 +49,7 @@ struct GrocerDetailsView: View {
                     
                     Spacer()
                     Spacer()
+                    Spacer()
                     
                     ZStack {
                         
@@ -79,7 +80,7 @@ struct GrocerDetailsView: View {
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                                 .multilineTextAlignment(.leading)
-                                .lineLimit(nil)
+                                .lineLimit(3)
                                 .padding([.top, .leading, .trailing])
                                 .frame(width: self.getWidth(), alignment: .leading) .foregroundColor(Color.fromHex(Constants.COLOR_GREY_600))
                             

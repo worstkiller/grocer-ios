@@ -24,3 +24,11 @@ struct CategoryItemModel: Hashable, Codable, Identifiable {
 class CategoryObservable: ObservableObject {
     @Published var selectedId: String?
 }
+
+class ProductObservable: ObservableObject {
+    @Published var productsList: [GroceryItemModel]?
+    
+    init(_ products: [GroceryItemModel]){
+        productsList = products
+    }
+}
