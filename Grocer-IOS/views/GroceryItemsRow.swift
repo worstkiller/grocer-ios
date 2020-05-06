@@ -16,7 +16,6 @@ struct GroceryItemsRow: View {
     let cellHeight : CGFloat =  (UIScreen.main.bounds.width/2 - 32) * 1.75
     
     var groceryItemModel : GroceryItemModel
-    var debugView: Bool = false
     
     var body: some View {
         VStack {
@@ -65,7 +64,7 @@ struct GroceryItemsRow: View {
                 
                 URLImage(URL(string: groceryItemModel.image)!,
                          placeholder: { _ in
-                            Image(self.debugView ? "kiwi" : "")
+                            Image("kiwi")
                                 .resizable()
                                 .renderingMode(.original)
                                 .scaledToFit()
@@ -141,7 +140,7 @@ struct GroceryItemsRow: View {
                 .foregroundColor(Color.fromHex(groceryItemModel.accentColor))
             
             URLImage(URL(string: groceryItemModel.image)!, placeholder: { _ in
-                Image(self.debugView ? "fruit" : "")
+                Image("fruit")
                     .resizable()
                     .renderingMode(.original)
                     .scaledToFill()
@@ -204,8 +203,8 @@ extension View {
 struct GroceryItemsRow_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            GroceryItemsRow(groceryItemModel: LocalDataHandler.productsData[0], debugView: true)
-            GroceryItemsRow(groceryItemModel: LocalDataHandler.productsData[1], debugView: true)
+            GroceryItemsRow(groceryItemModel: LocalDataHandler.productsData[0])
+            GroceryItemsRow(groceryItemModel: LocalDataHandler.productsData[1])
         }.previewLayout(.fixed(width: 300, height: 270))
     }
 }

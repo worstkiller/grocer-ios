@@ -16,16 +16,16 @@ struct ContentView: View {
     @State var productsData : [GroceryItemModel] = LocalDataHandler.productsData
     @ObservedObject var categoryObservable = CategoryObservable()
     @ObservedObject var productsObservable = ProductObservable(LocalDataHandler.productsData)
-
+    
     var body: some View {
         
         NavigationView {
-           
+            
             VStack() {
-               
+                
                 ToolbarView(hasNavigation: false)
                 
-                SearchView()
+                SearchView(searchDelegate: self)
                 
                 TabLayoutView(categoryItemModel: categoriesData,
                               categoryObservable: categoryObservable,
@@ -34,7 +34,7 @@ struct ContentView: View {
                 GroceryItemsView(groceryItemModels: productsObservable.productsList ?? [])
                 
                 Spacer()
-            
+                
             }.navigationBarTitle("").navigationBarHidden(true)
         }
         
@@ -54,5 +54,13 @@ extension ContentView : TabChangeDelegate {
         self.categoryObservable.selectedId = id
         productsObservable.productsList = LocalDataHandler.getProductsData(category: id)
         print("on tab change listener called, data size = \(productsData.count)")
+    }
+}
+
+extension ContentView: SearchChangeDelegate {
+    func onKeyChange(text: String) {
+        let filteredList = productsObservable.productsList?.filter{ $0.title.contains(text)} ?? []
+        productsObservable.productsList = filteredList.count>0 ? filteredList : LocalDataHandler.getProductsData(category: categoryObservable.selectedId ?? LocalDataHandler.categoriesData[0].id)
+        print("text change listener called")
     }
 }

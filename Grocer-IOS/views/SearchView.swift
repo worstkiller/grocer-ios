@@ -13,7 +13,13 @@ import SwiftUI
 struct SearchView: View {
     
     let width = UIScreen.main.bounds.width - 32
-    @State private var searchText = ""
+    @State private var searchText = SearchTextChangeObservable()
+    var searchChangeDelegate : SearchChangeDelegate?
+    
+    init(searchDelegate: SearchChangeDelegate?) {
+        self.searchChangeDelegate = searchDelegate
+        searchText.searchChangeDelegate = searchDelegate
+    }
     
     var body: some View {
         ZStack {
@@ -22,7 +28,12 @@ struct SearchView: View {
                 .frame(width: width, height: 48, alignment: .center)
             
             HStack {
-                TextField("Search here", text: $searchText).padding()
+                TextField("Search here", text: $searchText.searchText, onEditingChanged: { active in
+                    print("Editing changed: \(active)")
+                }, onCommit: {
+                    print("Commited: \(self.searchText)")
+                    self.searchChangeDelegate?.onKeyChange(text: self.searchText.searchText)
+                }).padding()
                 Image("search")
                     .resizable()
                     .frame(width:18, height:18)
@@ -37,6 +48,6 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        SearchView(searchDelegate: nil)
     }
 }

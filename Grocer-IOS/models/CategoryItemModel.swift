@@ -19,16 +19,3 @@ struct CategoryItemModel: Hashable, Codable, Identifiable {
         case isDefault = "default"
     }
 }
- 
-//specific class for observing the tab selection
-class CategoryObservable: ObservableObject {
-    @Published var selectedId: String?
-}
-
-class ProductObservable: ObservableObject {
-    @Published var productsList: [GroceryItemModel]?
-    
-    init(_ products: [GroceryItemModel]){
-        productsList = products
-    }
-}
