@@ -9,17 +9,23 @@ import Foundation
 
 
 //specific class for observing the tab selection
-class CategoryObservable: ObservableObject {
+class CategorySelectedObservable: ObservableObject {
     @Published var selectedId: String?
 }
 
 // products change observables
 class ProductObservable: ObservableObject {
-    @Published var productsList: [GroceryItemModel]?
-    
-    init(_ products: [GroceryItemModel]){
-        productsList = products
-    }
+    @Published var productsList: [GroceryItemModel] = []
+}
+
+// products change observables
+class CategoryObservable: ObservableObject {
+    @Published var categoryList: [CategoryItemModel] = []
+}
+
+// progress change observables
+class ProgressObservable: ObservableObject {
+    @Published var isLoading: Bool = true
 }
 
 // search text change observables

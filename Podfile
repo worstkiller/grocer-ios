@@ -8,5 +8,6 @@ target 'Grocer-IOS' do
   # Pods for Grocer-IOS
   pod 'URLImage'
   pod 'MaterialComponents/Snackbar'
+  pod 'Alamofire', '~> 5.1'
 
 end

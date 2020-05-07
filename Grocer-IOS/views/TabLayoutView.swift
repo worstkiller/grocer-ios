@@ -12,8 +12,8 @@ import SwiftUI
  */
 struct TabLayoutView: View {
     
-    @State var categoryItemModel  : [CategoryItemModel]
-    @ObservedObject var categoryObservable : CategoryObservable
+    var categoryItemModel  : [CategoryItemModel]
+    @ObservedObject var categoryObservable : CategorySelectedObservable
     var onTabChangeListener: TabChangeDelegate?
     
     var body: some View {
@@ -33,6 +33,6 @@ struct TabLayoutView: View {
 struct TabLayoutView_Previews: PreviewProvider {
     static var previews: some View {
         TabLayoutView(categoryItemModel: LocalDataHandler.categoriesData,
-                      categoryObservable: CategoryObservable())
+                      categoryObservable: CategorySelectedObservable())
     }
 }
