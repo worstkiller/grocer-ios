@@ -14,7 +14,6 @@ import URLImage
 struct GroceryItemsRow: View {
     let cellWidth = UIScreen.main.bounds.width/2 - 20
     let cellHeight : CGFloat =  (UIScreen.main.bounds.width/2 - 32) * 1.75
-    
     var groceryItemModel : GroceryItemModel
     
     var body: some View {
@@ -145,7 +144,7 @@ struct GroceryItemsRow: View {
                     .renderingMode(.original)
                     .scaledToFill()
                     .frame(width: self.cellWidth, height: self.cellHeight, alignment: .center)
-              
+                
             }){ proxy in
                 proxy.image
                     .resizable()
