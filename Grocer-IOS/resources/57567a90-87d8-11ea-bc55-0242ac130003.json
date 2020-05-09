@@ -18,9 +18,9 @@
   {
     "uid": "9a541fa6-87e1-11ea-bc55-0242ac130003",
     "image": "https://github.com/worstkiller/grocer-ios/raw/master/Grocer-IOS/resources/promo/dry_fruits_promo.jpg",
-    "title": "40% OFF",
+    "title": "20% OFF",
     "subtitle": "Use the above code \nfor spring festival collection",
-    "misc_info": "Foodly Surprise",
+    "misc_info": "DRY 2020",
     "accent_color": "#f5e0bb",
     "parent_uid": "5756773e-87d8-11ea-bc55-0242ac130003",
     "type": "promotion"
@@ -113,7 +113,7 @@
     "price": 230,
     "quantity_label": "Per Kg",
     "misc_info": "View Prices",
-    "accent_color": "#f5e0bb",
+    "accent_color": "#f4e179",
     "parent_uid": "5756773e-87d8-11ea-bc55-0242ac130003",
     "type": "product",
     "description": "Dry fruits are rich in vitamins and proteins; they also boost immunity and prevent lifestyle diseases such as cholesterol and diabetes. Most dry fruits are rich in minerals, proteins, fibre and vitamins add to that they are tasty.",
