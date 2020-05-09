@@ -1,5 +1,5 @@
 # 🥑 Grocer IOS Application
-Grocer is an IOS application for showing the demo on SwiftUI. SwiftUI is a new ui toolkit/framework for building rapid and resuable ui components. My experience with swiftui was quite amazing, the ease and the rich set of api's to create almost any ui component had my heart. Being android developer i did not expected swiftui to come easily but it turned out to be opposite and i loved trying out swiftUI for fun. Here is what i created so far and i am excited to share with you all, please install and give it try thanks 😊.  
+Grocer is an IOS application for showing the demo of a grocery app with SwiftUI. SwiftUI is a new ui toolkit/framework for building rapid and resuable ui components. My experience with swiftui was quite amazing, the ease and the rich set of api's to create almost any ui component had my heart. Being android developer i did not expected swiftui to come easily but it turned out to be opposite and i loved trying out swiftUI for fun. Here is what i created so far and i am excited to share with you all, please install and give it try thanks 😊.  
 
 ## 📱Screenshots
 ♥️ | ♥️
@@ -44,3 +44,9 @@ Grocer is an IOS application for showing the demo on SwiftUI. SwiftUI is a new u
  * [Behance](https://www.behance.net/vikaskum)
  * [Portfolio](https://vikas.dev)
  * [Email](mailto:contactvikasrajput@gmail.com)
+
+## 🙏 Credits
+- [Dribble](https://dribbble.com/shots/8369400-Groceries-Shopping-Mobile-App)
+- [StackOverlow](https://stackoverflow.com/a/59171234/4517450)
+- [GridStack](https://github.com/pietropizzi/GridStack)
+
