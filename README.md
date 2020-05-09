@@ -20,6 +20,8 @@ Grocer is an IOS application for showing the demo on SwiftUI. SwiftUI is a new u
 - Make Sure you have Mac OS [Catalina](https://apps.apple.com/in/app/macos-catalina/id1466841314?l=en-in&mt=12)
 - Make Sure to Have Xcode 11.4 or higher
 - Go to project directory and run ```pod install``` if not installed install pod ``` sudo gem install cocoapods```
+- run ```open Grocer-IOS.xcworkspace/``` to open Xcode from terminal
+- Make changes to make it yours.
 
 
 ## ✔️ Functionalities
