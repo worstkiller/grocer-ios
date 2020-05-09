@@ -7,13 +7,16 @@ Grocer is an IOS application for showing the demo of a grocery app with SwiftUI.
 <img src="https://raw.githubusercontent.com/worstkiller/grocer-ios/master/screenshots/Image%201.jpg" height="649" width="300">|<img src="https://raw.githubusercontent.com/worstkiller/grocer-ios/master/screenshots/Image%202.jpg" height="649" width="300">
 <img src="https://raw.githubusercontent.com/worstkiller/grocer-ios/master/screenshots/Image%203.jpg" height="649" width="300">|<img src="https://raw.githubusercontent.com/worstkiller/grocer-ios/master/screenshots/Image%205.jpg" height="649" width="300">
 
-## 🖥️ Technologies/libraries/Frameworks
+##  📺 Showoff Time
+[! Watch the demo on youtube](https://youtu.be/YCiDI6lOgeA)
 
+## 🖥️ Technologies/libraries/Frameworks
 - [SwiftUI](https://developer.apple.com/documentation/swiftui)
 - [Material Component Snackbar](https://material.io/develop/ios/components/snackbars/)
 - [Swift 5.2](https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html)
 - [URLImage](https://github.com/dmytro-anokhin/url-image)
 - [Alamofire](https://alamofire.github.io/Alamofire/)
+
 
 ## 👩‍💻 How to install and Requirements
 - Download the Project
@@ -33,10 +36,12 @@ Grocer is an IOS application for showing the demo of a grocery app with SwiftUI.
 * Actions - Favourite, Product quantity, Add to Bag 
 * Screens - Home, Details
 
+
 ## 💁 Feel Free to Reach for :
  * Suggestions
  * Code Improvements
  * Issues
+
 
 ## 🤝 Let's get Social
  * [Twitter](https://twitter.com/vikaskum09)
@@ -44,6 +49,7 @@ Grocer is an IOS application for showing the demo of a grocery app with SwiftUI.
  * [Behance](https://www.behance.net/vikaskum)
  * [Portfolio](https://vikas.dev)
  * [Email](mailto:contactvikasrajput@gmail.com)
+
 
 ## 🙏 Credits
 - [Dribble](https://dribbble.com/shots/8369400-Groceries-Shopping-Mobile-App)
