@@ -48,6 +48,6 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(searchDelegate: nil)
+        SearchView(searchDelegate: nil).previewLayout(.fixed(width: 350, height: 60))
     }
 }

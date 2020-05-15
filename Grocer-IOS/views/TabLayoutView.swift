@@ -33,6 +33,6 @@ struct TabLayoutView: View {
 struct TabLayoutView_Previews: PreviewProvider {
     static var previews: some View {
         TabLayoutView(categoryItemModel: LocalDataHandler.categoriesData,
-                      categoryObservable: CategorySelectedObservable())
+                      categoryObservable: CategorySelectedObservable()).previewLayout(.fixed(width: 380, height: 60))
     }
 }
